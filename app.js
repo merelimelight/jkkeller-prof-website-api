@@ -58,18 +58,18 @@ const db = {
   ]
 };
 
-app.get("/blog", (request, response) => {
+app.get("/api/posts", (request, response) => {
   response.json(db.posts);
 });
 
-app.post("/blog", (request, response) => {
+app.post("/api/posts", (request, response) => {
   const post = request.body;
   post.id = db.posts.length + 1;
   db.posts.push(post);
   response.json(post);
 });
 
-app.get("/blog/:id", (request, response) => {
+app.get("/api/posts/:id", (request, response) => {
   const id = Number(request.params.id);
   const post = db.posts.find(post => {
     return post.id === id;
@@ -82,7 +82,7 @@ app.get("/blog/:id", (request, response) => {
   }
 });
 
-app.delete("/blog/:id", (request, response) => {
+app.delete("/api/posts/:id", (request, response) => {
   const id = Number(request.params.id);
   const post = db.posts.find(post => {
     return post.id === id;
@@ -98,7 +98,7 @@ app.delete("/blog/:id", (request, response) => {
   }
 });
 
-app.put("/blog/:id", (request, response) => {
+app.put("/api/posts/:id", (request, response) => {
   const id = Number(request.params.id);
   const post = db.posts.find(post => {
     return post.id === id;
