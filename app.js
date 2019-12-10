@@ -99,7 +99,7 @@ app.delete("/api/posts/:id", (request, response) => {
   }
 });
 
-app.put("/api/posts/:id", (request, response) => {
+app.put("/api/posts/:id/edit", (request, response) => {
   const id = Number(request.params.id);
   const post = db.posts.find(post => {
     return post.id === id;
