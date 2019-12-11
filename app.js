@@ -10,7 +10,7 @@ app.use(
   cors({
     origin: IS_DEVELOPMENT
       ? "http://localhost:3000"
-      : "https://julianna-keller.surge.sh/"
+      : "https://julianna-keller.surge.sh/blog"
   })
 );
 
