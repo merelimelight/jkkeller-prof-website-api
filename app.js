@@ -8,10 +8,9 @@ const IS_DEVELOPMENT = ENVIRONMENT === "development";
 app.use(express.json());
 app.use(
   cors({
-    // origin: IS_DEVELOPMENT
-    //   ? "http://localhost:3000"
-    //   : "https://sore-kittens.surge.sh/"
-    origin: "http://localhost:3000"
+    origin: IS_DEVELOPMENT
+      ? "http://localhost:3000"
+      : "https://julianna-keller.surge.sh/"
   })
 );
 
@@ -99,7 +98,7 @@ app.delete("/api/posts/:id", (request, response) => {
   }
 });
 
-app.put("/api/posts/:id/edit", (request, response) => {
+app.put("/api/posts/:id", (request, response) => {
   const id = Number(request.params.id);
   const post = db.posts.find(post => {
     return post.id === id;
